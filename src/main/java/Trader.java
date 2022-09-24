@@ -42,8 +42,9 @@ public class Trader<T> {
 
     public Trader(int money)
     {
-        this.inventory = null;
-        this.wishlist = null;
+        this.money = money;
+        this.inventory = new ArrayList<T>();
+        this.wishlist = new ArrayList<T>();
     }
 
 

@@ -68,15 +68,15 @@ class DrivableMap {
      *       drivable_map.
      */
 
-    public ArrayList<Drivable> getTradable()
+    public ArrayList<Tradable> getTradable()
     {
         //怎么破？这里用ArrayList是可以的嘛？
-        ArrayList<Drivable> listTradable = new ArrayList<Drivable>();
+        ArrayList<Tradable> listTradable = new ArrayList<Tradable>();
         for (String s: drivable_map.keySet())
         {
             if (drivable_map.get(s) instanceof Tradable)
             {
-                Drivable item = drivable_map.get(s);
+                Tradable item = (Tradable) drivable_map.get(s);
                 listTradable.add(item);
             }
         }
