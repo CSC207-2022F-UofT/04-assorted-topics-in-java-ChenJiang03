@@ -27,6 +27,16 @@ class DrivableMap {
      *       in drivable_map, then add the pair to drivable_map.
      *       Return true if the Drivable was added to drivable_map.
      */
+    public boolean addDrivable(String ID, Drivable object)
+    {
+        if (!drivable_map.containsKey(ID))
+        {
+            drivable_map.put(ID, object);
+            return true;
+        }
+
+        return false;
+    }
 
 
 
@@ -37,6 +47,17 @@ class DrivableMap {
      * You may want to use drivable_map.keys() or drivable_map.values() to
      * iterate through drivable_map.
      */
+    public boolean hasFasterThan(int speed)
+    {
+        for (String s: drivable_map.keySet()) {
+            if (drivable_map.get(s).getMaxSpeed() >= speed)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
 
 
@@ -46,6 +67,22 @@ class DrivableMap {
      *       returns a List containing all of the Tradable items in
      *       drivable_map.
      */
+
+    public ArrayList<Drivable> getTradable()
+    {
+        //怎么破？这里用ArrayList是可以的嘛？
+        ArrayList<Drivable> listTradable = new ArrayList<Drivable>();
+        for (String s: drivable_map.keySet())
+        {
+            if (drivable_map.get(s) instanceof Tradable)
+            {
+                Drivable item = drivable_map.get(s);
+                listTradable.add(item);
+            }
+        }
+        //这里让我返回一个list containing all of the tradable items，但是我只能返回一个Drivable的Arraylist，怎么破？
+        return listTradable;
+    }
 
 
 

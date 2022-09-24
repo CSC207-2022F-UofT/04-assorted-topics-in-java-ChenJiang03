@@ -11,3 +11,29 @@
  */
 
 import java.util.List;
+public class DrivableTrader<T> extends Trader<Drivable>{
+    public DrivableTrader(List<Drivable> inventory, List<Drivable> wishlist, int money)
+    {
+        super(inventory, wishlist, money);
+//        if (inventory instanceof Drivable && wishlist instanceof Drivable)
+//        {
+//            super(inventory, wishlist, money);
+//        }
+        //想要让这inventory和wishlist都是Drivable的，怎么破？
+    }
+
+    public DrivableTrader(int money)
+    {
+        super(money);
+    }
+
+    public int getSellingPrice(Drivable object)
+    {
+        if (object instanceof Tradable)
+        {
+            return ((Tradable) object).getPrice() + object.getMaxSpeed();
+        }
+
+        return Tradable.MISSING_PRICE;
+    }
+}
